@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function computerPlay() {
+        let indexNum = Math.floor(Math.random() * (4-1)) + 1;
+        switch (indexNum) {
+          case 1:
+            return "rock";
+            break;
+          case 2:
+            return "paper";
+            break;
+          default:
+            return "scissors";
+        }
+      }
+
+      function playRPS(playerChoice, computerChoice) {
+        let playerPlay = playerChoice.toLowerCase();
+        let computerPlay = computerChoice.toLowerCase();
+        switch (playerPlay) {
+          case "rock":
+            if (computerPlay == 'paper') {
+              return "You Lose! Paper beats rock!";
+            } else if (computerPlay == 'scissors') {
+              return "You Win! Rock beats scissors!";
+            } else {
+              return "It's a tie! You both had Rock.";
+            }
+            break;
+          case "paper":
+            if (computerPlay == 'scissors') {
+              return "You Lose! Scissors beat paper!";
+            } else if (computerPlay == 'rock') {
+              return "You Win! Paper beats rock!";
+            } else {
+              return "It's a tie! You both had paper.";
+            }
+            break;
+          default:
+            if (computerPlay == 'rock') {
+              return "You Lose! Rock beats scissors!";
+            } else if (computerPlay == 'paper') {
+              return "You Win! Scissors beat paper!";
+            } else {
+              return "It's a tie! You both had scissors.";
+            }
+        }
+      }
+
+      let playerSelection = prompt("Enter rock, paper or scissors:");
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
