@@ -92,15 +92,19 @@
         resultToAdd.textContent = `${gameResult}`;
         result.appendChild(resultToAdd);
 
-        userScoreDisplay.textContent = `${playerScore}`;
-        computerScoreDisplay.textContent = `${computerScore}`;
-
-        // const userScoreToAdd = document.createElement('span');
-        // const computerScoreToAdd = document.createElement('span');
-        // userScoreToAdd.textContent = `${playerScore}`;
-        // computerScoreToAdd.textContent = `${computerScore}`;
-        // userScoreDisplay.appendChild(userScoreToAdd);
-        // computerScoreDisplay.appendChild(computerScoreToAdd);
+        if(playerScore < 5 && computerScore < 5) {
+          userScoreDisplay.textContent = `${playerScore}`;
+          computerScoreDisplay.textContent = `${computerScore}`;
+        } else {
+          if (playerScore === 5) {
+            alert("You are the ultimate winner!");
+          } else {
+            alert("The computer has defeated you!");
+          }
+          computerScore = 0;
+          playerScore = 0;
+          result.textContent = "";
+        }
       });
     });
 
