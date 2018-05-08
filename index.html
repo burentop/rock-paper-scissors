@@ -12,6 +12,12 @@
       <li><button id="paper">Paper</button></li>
       <li><button id="scissors">Scissors</button></li>
     </ul>
+    <h2>Score</h2>
+    <ul>
+      <li>You: <span id="userScore"></span></li>
+      <li>Computer: <span id="computerScore"></span></li>
+    </ul>
+    <h3>Round Results:</h3>
     <div id="roundResults"></div>
   </body>
   <script type="text/javascript">
@@ -75,6 +81,9 @@
     const result = document.querySelector('#roundResults');
     let gameResult = "";
 
+    const userScoreDisplay = document.querySelector('#userScore');
+    const computerScoreDisplay = document.querySelector('#computerScore');
+
     const choices = document.querySelectorAll('button');
     choices.forEach((choice) => {
       choice.addEventListener('click', (e) => {
@@ -82,19 +91,18 @@
         gameResult = playRPS(`${e.srcElement.id}`, computerPlay());
         resultToAdd.textContent = `${gameResult}`;
         result.appendChild(resultToAdd);
+
+        userScoreDisplay.textContent = `${playerScore}`;
+        computerScoreDisplay.textContent = `${computerScore}`;
+
+        // const userScoreToAdd = document.createElement('span');
+        // const computerScoreToAdd = document.createElement('span');
+        // userScoreToAdd.textContent = `${playerScore}`;
+        // computerScoreToAdd.textContent = `${computerScore}`;
+        // userScoreDisplay.appendChild(userScoreToAdd);
+        // computerScoreDisplay.appendChild(computerScoreToAdd);
       });
     });
-
-    // function game() {
-    //   for (let i = 0; i < 5; i++) {
-    //     let playerSelection = prompt("Enter rock, paper or scissors:");
-    //     let computerSelection = computerPlay();
-    //     console.log(playRPS(playerSelection, computerSelection));
-    //   }
-    //   console.log(`Final Score: You(${playerScore}) Computer(${computerScore})`);
-    // }
-
-
 
   </script>
 </html>
